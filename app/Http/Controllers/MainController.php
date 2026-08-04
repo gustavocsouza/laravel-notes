@@ -6,5 +6,13 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-   
+   public function index() 
+   {
+        echo 'Main Controller';
+   }
+
+   public function newNote() 
+   {
+        echo 'New Note';
+   }
 }
