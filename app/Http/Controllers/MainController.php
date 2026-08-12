@@ -22,7 +22,28 @@ class MainController extends Controller
 
   public function newNote()
   {
-    echo 'New Note';
+    return view('new_note');
+  }
+
+  public function newNoteSubmit(Request $request)
+  {
+    $request->validate(
+        [
+            'text_title' => 'required|min:3|max:200',
+            'text_note' => 'required|min:3|max:3000',
+        ],
+        [
+            'text_title.required' => 'O título é obrigatório.',
+            'text_title.min' => 'O titulo deve ter no mínimo :min caracteres',
+            'text_title.max' => 'O titulo deve ter no máximo :max carateres',
+            'text_note.required' => 'A nota é obrigatório.',
+            'text_note.min' => 'A nota deve ter no mínimo :min caracteres',
+            'text_note.max' => 'A nota deve ter no máximo :max carateres',
+        ]
+    );  
+
+
+    echo "Ok";
   }
 
   public function editNote($id) 
